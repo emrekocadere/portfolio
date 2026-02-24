@@ -1,5 +1,60 @@
 import { useState, useEffect } from 'react';
 
+const csharpTokenize = (code) => {
+  const keywords = ['public', 'class', 'string', 'get', 'set', 'new', 'List', 'return', 'private', 'protected', 'void', 'static', 'using', 'namespace'];
+  const types = ['string', 'int', 'bool', 'void', 'List', 'Dictionary', 'IEnumerable'];
+  
+  const tokens = [];
+  
+  const regex = /(\s+|"[^"]*"|\/\/.*|[\{\}\(\)\[\]=;,.]|\w+|.)/g;
+  let match;
+  
+  while ((match = regex.exec(code)) !== null) {
+    const token = match[0];
+    
+    if (/^\s+$/.test(token)) {
+      tokens.push({ type: 'whitespace', value: token });
+    } else if (token.startsWith('"')) {
+      tokens.push({ type: 'string', value: token });
+    } else if (keywords.includes(token)) {
+      tokens.push({ type: 'keyword', value: token });
+    } else if (types.includes(token)) {
+      tokens.push({ type: 'type', value: token });
+    } else if (/^[=\{\}\(\)\[\];,.]$/.test(token)) {
+      tokens.push({ type: 'punctuation', value: token });
+    } else if (token === '=') {
+      tokens.push({ type: 'operator', value: token });
+    } else if (/^[A-Z]/.test(token)) {
+      tokens.push({ type: 'className', value: token });
+    } else {
+      tokens.push({ type: 'text', value: token });
+    }
+  }
+  
+  return tokens;
+};
+
+const renderToken = (token, idx) => {
+  const colorMap = {
+    keyword: 'text-blue-400',
+    type: 'text-blue-400',
+    string: 'text-green-400',
+    number: 'text-yellow-400',
+    comment: 'text-gray-500',
+    className: 'text-pink-400',
+    operator: 'text-green-500',
+    punctuation: 'text-gray-300',
+    whitespace: '',
+    text: 'text-gray-300'
+  };
+  
+  return (
+    <span key={idx} className={colorMap[token.type] || ''}>
+      {token.value}
+    </span>
+  );
+};
+
 const Hero = () => {
   const codeText = `public class Developer
 {
@@ -35,6 +90,8 @@ const Hero = () => {
 
     return () => clearInterval(timer);
   }, []);
+
+  const tokens = csharpTokenize(displayedText);
 
   return (
     <section id="home" className="min-h-screen flex items-center pt-20 relative overflow-hidden">
@@ -90,8 +147,10 @@ const Hero = () => {
         
         <div className="hidden md:block">
        
-            <pre className="font-mono text-sm leading-relaxed text-gray-300">
-              <code>{displayedText}</code>
+            <pre className="font-mono text-sm leading-relaxed">
+              <code>
+                {tokens.map((token, idx) => renderToken(token, idx))}
+              </code>
             </pre>
 
         </div>
@@ -99,5 +158,4 @@ const Hero = () => {
     </section>
   );
 };
-
 export default Hero;

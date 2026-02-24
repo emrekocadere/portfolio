@@ -15,7 +15,7 @@ const Contact = () => {
             href="https://github.com/emrekocadere" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="bg-[#16161f] border border-primary-500/15 rounded-2xl p-8 flex items-center gap-5 hover:border-primary-500/40 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary-500/15 transition-all group relative"
+            className="bg-[#16161f] border border-primary-500/15 rounded-2xl p-8 flex items-center gap-5 hover:border-primary-500/30 transition-all group relative"
           >
             <div className="w-16 h-16 rounded-xl bg-primary-500/15 text-primary-500 flex items-center justify-center flex-shrink-0">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
@@ -26,7 +26,7 @@ const Contact = () => {
               <h3 className="text-xl font-semibold text-gray-100 mb-1">GitHub</h3>
               <p className="text-sm text-gray-400">Check out my projects</p>
             </div>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="ml-auto text-gray-600 group-hover:text-primary-500 group-hover:translate-x-1 transition-all">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="ml-auto text-gray-600 group-hover:text-primary-500 transition-all">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </a>
@@ -35,7 +35,7 @@ const Contact = () => {
             href="https://www.linkedin.com/in/salih-emre-kocadere/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="bg-[#16161f] border border-primary-500/15 rounded-2xl p-8 flex items-center gap-5 hover:border-primary-500/40 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary-500/15 transition-all group relative"
+            className="bg-[#16161f] border border-primary-500/15 rounded-2xl p-8 flex items-center gap-5 hover:border-primary-500/30 transition-all group relative"
           >
             <div className="w-16 h-16 rounded-xl bg-primary-400/15 text-primary-400 flex items-center justify-center flex-shrink-0">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
@@ -46,7 +46,7 @@ const Contact = () => {
               <h3 className="text-xl font-semibold text-gray-100 mb-1">LinkedIn</h3>
               <p className="text-sm text-gray-400">View my professional network</p>
             </div>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="ml-auto text-gray-600 group-hover:text-primary-500 group-hover:translate-x-1 transition-all">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="ml-auto text-gray-600 group-hover:text-primary-500 transition-all">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </a>
@@ -56,7 +56,7 @@ const Contact = () => {
           <a 
             href="/resume.pdf"
             download="Salih_Emre_Kocadere_Resume.pdf"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-primary-500 text-white font-medium shadow-lg shadow-primary-500/30 hover:bg-primary-600 transition-all"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-primary-500 text-white font-medium hover:bg-primary-600 transition-all"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
