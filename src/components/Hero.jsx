@@ -1,4 +1,41 @@
+import { useState, useEffect } from 'react';
+
 const Hero = () => {
+  const codeText = `public class Developer
+{
+    public string Name { get; set; } 
+        = "Salih Emre Kocadere";
+    
+    public string Role { get; set; } 
+        = "Full Stack Developer";
+    
+    public List<string> Skills { get; set; } = new()
+    {
+        "React", "TypeScript",
+        ".NET", "C#",
+        "PostgreSQL", "Redis"
+    };
+    
+    public string Passion { get; set; } 
+        = "Building great products";
+}`;
+
+  const [displayedText, setDisplayedText] = useState('');
+
+  useEffect(() => {
+    let index = 0;
+    const timer = setInterval(() => {
+      if (index < codeText.length) {
+        setDisplayedText(codeText.substring(0, index + 1));
+        index++;
+      } else {
+        clearInterval(timer);
+      }
+    }, 5);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="home" className="min-h-screen flex items-center pt-20 relative overflow-hidden">
       <div className="absolute top-0 left-1/2 w-[800px] h-[800px] -translate-x-1/2 -translate-y-[30%] pointer-events-none">
@@ -54,24 +91,7 @@ const Hero = () => {
         <div className="hidden md:block">
        
             <pre className="font-mono text-sm leading-relaxed text-gray-300">
-              <code>{`public class Developer
-{
-    public string Name { get; set; } 
-        = "Salih Emre Kocadere";
-    
-    public string Role { get; set; } 
-        = "Full Stack Developer";
-    
-    public List<string> Skills { get; set; } = new()
-    {
-        "React", "TypeScript",
-        ".NET", "C#",
-        "PostgreSQL", "Redis"
-    };
-    
-    public string Passion { get; set; } 
-        = "Building great products";
-}`}</code>
+              <code>{displayedText}</code>
             </pre>
 
         </div>
